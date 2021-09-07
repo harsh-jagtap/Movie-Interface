@@ -1,0 +1,79 @@
+/* common */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* sementic tags */
+
+section {
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    font-size: 30px;
+    text-align: center
+}
+
+hr {
+    margin: 10px auto;
+    border-color: black;
+    width: 90%;
+}
+
+
+/* main */
+
+.heading {
+    margin: 20px 0px;
+}
+
+.img {
+    width: 50%;
+    margin: auto;
+}
+
+.info {
+    padding: 20px 30px;
+    font-size: 20px;
+    text-align: start;
+}
+
+.desc {
+    margin: 0 30px;
+    font-size: 20px;
+    text-align: start;
+}
+
+.download-box {
+    margin: 30px;
+    padding: 5px;
+}
+
+.download-btn {
+    padding: 5px;
+    background-color: #0d6efd;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.back-button {
+    margin: 30px;
+    padding: 5px;
+    background-color: #0d6efd;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.error {
+    margin: 30px;
+}
