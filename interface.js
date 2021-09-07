@@ -1,6 +1,7 @@
 console.log("Wel-come to Harshree Movie also called as Harshree Development");
 
 let searchPara = new URLSearchParams(window.location.search).get("id");
+// let url = "../Movie Data/data.json";
 let url = "https://harsh-jagtap.github.io/Movie-Data/data.json";
 let display = document.querySelector("#show")
 
@@ -24,25 +25,25 @@ fetch(url).then(function(resp) {
 
     } else {
         movie = `<div class="heading"> ${key.name} </div>
-        <img class="img" src="${key.imageUrl}" alt="Img error" loading="lazy">
-        <hr>
-        <div class="info">
-        <div> Movie Info -</div>
-        <div> Name: ${key.name} </div>
-        <div> Language: ${key.Language} </div>
-        <div> Released: ${key.ReleaseDate} </div>
-        <div> Quality: ${key.Quality} </div>
-        <div> Size: ${key.size}mb </div>
-        </div>
-        <div class="desc"> ${key.description} </div>
-        <div class="download-box">
-        <div>
-        Google drive link :
-        </div>
-        <a href="${key.downloadUrl}" target="_blank">
-        <button class="download-btn">Download</button>
-        </a>
-        </div>`
+                    <img class="img" src="${key.imageUrl}" alt="Img error" loading="lazy">
+                    <hr>
+                    <div class="info">
+                        <p> Movie Info -</p>
+                        <p> Name: ${key.name} </p>
+                        <p> Language: ${key.Language} </p>
+                        <p> SubTitle: ${key.subtitle} </p>
+                        <p> Released: ${key.ReleaseDate} </p>
+                        <p> Quality: ${key.Quality} </p>
+                        <p> Size: ${key.size}mb </p>
+                    </div>
+                    <div class="desc"> ${key.description} </div>
+                    <div class="download-box">
+                        <div> Google drive link : </div>
+                        <div> Can watch online </div>
+                        <a href="${key.downloadUrl}" target="_blank">
+                            <button class="download-btn"> Download / Watch online</button>
+                        </a>
+                </div>`
     }
 
     display.innerHTML += movie
