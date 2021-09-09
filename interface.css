@@ -64,6 +64,11 @@ hr {
     font-weight: 900;
 }
 
+.downlodButtonList {
+    display: flex;
+    flex-direction: column;
+}
+
 .back-button {
     margin: 30px;
     padding: 5px;

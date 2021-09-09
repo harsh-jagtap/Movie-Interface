@@ -11,6 +11,7 @@ fetch(url).then(function(resp) {
     let key = resp.movie[searchPara - 1]
     let movie;
 
+    // showing
     if (key === undefined) {
         movie = `<div class="error">
                         <div>
@@ -24,26 +25,52 @@ fetch(url).then(function(resp) {
                     </div>`
 
     } else {
+        // sorting download link
+        let downloadButton = "";
+
+        if (typeof(key.downloadUrl) === "object") {
+
+            let count = 0;
+            for (k in key.downloadUrl) {
+                if (key.downloadUrl.hasOwnProperty(k)) count++;
+
+                downloadButton += `Part ${count}
+                <a href="${key.downloadUrl[count]}" target="_blank">
+                <button class="download-btn"> Download / Watch online </button>
+                </a>`
+            }
+
+
+
+            console.log(key.downloadUrl[1], count);
+        } else {
+            console.log("bye");
+
+            downloadButton += `<a href="${key.downloadUrl}" target="_blank">
+            <button class="download-btn"> Download / Watch online</button>
+            </a>`
+        }
+
+        // displaying
         movie = `<div class="heading"> ${key.name} </div>
-                    <img class="img" src="${key.imageUrl}" alt="Img error" loading="lazy">
-                    <hr>
-                    <div class="info">
-                        <p> Movie Info -</p>
-                        <p> Name: ${key.name} </p>
-                        <p> Language: ${key.Language} </p>
-                        <p> SubTitle: ${key.subtitle} </p>
-                        <p> Released: ${key.ReleaseDate} </p>
-                        <p> Quality: ${key.Quality} </p>
-                        <p> Size: ${key.size}mb </p>
-                    </div>
-                    <div class="desc"> ${key.description} </div>
-                    <div class="download-box">
-                        <div> Google drive link : </div>
-                        <div> Can watch online </div>
-                        <a href="${key.downloadUrl}" target="_blank">
-                            <button class="download-btn"> Download / Watch online</button>
-                        </a>
-                </div>`
+            <img class="img" src="${key.imageUrl}" alt="Img error" loading="lazy">
+            <hr>
+            <div class="info">
+            <p> Movie Info -</p>
+            <p> Name: ${key.name} </p>
+            <p> Language: ${key.Language} </p>
+            <p> Released: ${key.ReleaseDate} </p>
+            <p> Quality: ${key.Quality} </p>
+            <p> Size: ${key.size}mb </p>
+            </div>
+            <div class="desc"> ${key.description} </div>
+            <div class="download-box">
+            <div> Google drive link : </div>
+            <div> Can watch online </div>
+            <div class="downlodButtonList">
+            ${downloadButton}
+            </div>
+            </div>`
     }
 
     display.innerHTML += movie
